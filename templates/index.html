@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Kết quả</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+	  <link rel="stylesheet" type="text/css" href="../static/TrangChu.css">
+	</head>
+<body style="background-image: url('static/background.jpg');
+	background-position: top;
+	background-attachment: fixed;
+    background-size: cover;">
+	<section class="ftco-section">
+		<div class="header">
+				<p class="header-name" style="text-align: center">Bảng Kết Qủa</p>
+		</div>
+		<div class="option" style="margin-top:20px">
+				<div class="option-btn">
+					<button class="btn-item"><a class="link" href ="/">Giới thiệu</a></button>
+					<button class="btn-item"><a class="link" href ="/search">Tìm kiếm</a></button>
+					<button class="btn-item"><a class="link" href ="/result">Kết quả</a></button>
+					<button class="btn-item"><a class="link" href ="/visualize">Trực quan</a></button>
+
+				</div>
+			</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+                                {{ pagination.info }}
+                                {{ pagination.links }}
+						<table class="table">
+						  <thead class="thead-primary">
+						    <tr>
+						      <th>STT</th>
+						      <th>Mã bài báo</th>
+						      <th>Mã chủ đề</th>
+						      <th>Từ khóa chủ đề</th>
+								<th>Nội dung</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+                          {% for data in all_data %}
+						    <tr>
+						      <th scope="row">{{ loop.index + pagination.skip }}</th>
+
+						      <td>
+                                  <a href="{{ url_for('get_post', id=data[3]) }}">
+                                      {{ data[3] }}
+                                  </a>
+                              </td>
+								 <td>{{ data[2] }}</td>
+						      <td>{{ data[4] }}</td>
+								<td>{{ data[5] }}</td>
+						    </tr>
+                          {% endfor %}
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+            {{ pagination.links }}
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+

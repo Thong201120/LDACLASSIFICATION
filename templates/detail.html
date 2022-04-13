@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New</title>
+    	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="../static/TrangChu.css">
+</head>
+
+<body style="background-image: url('static/background.jpg');
+	background-position: top;
+	background-attachment: fixed;
+    background-size: cover;">
+<div class="new_wrap">
+    <div class="header">
+				<p class="header-name" style="color: black; text-align: center; margin-top: 20px">Chi tiết báo</p>
+			</div>
+			<div class="option">
+				<div class="option-btn">
+					<button class="btn-item1"><a class="link" style="color: black" href ="/">Giới thiệu</a></button>
+					<button class="btn-item1"><a class="link" style="color: black" href ="/search">Tìm kiếm</a></button>
+					<button class="btn-item1"><a class="link" style="color: black" href ="/result">Kết quả</a></button>
+					<button class="btn-item1"><a class="link" style="color: black" href ="/visualize">Trực quan</a></button>
+
+				</div>
+			</div>
+<!--    <p class="new_header">Newspaper details</p>-->
+    <p class="new_title">{{data.title}}</p>
+    <p class="new_cate">{{data.theloai}}</p>
+    <p class="new_desc">{{data.sumary}}</p>
+    <p class="new_cont">{{data.content}}</p>
+    <button class="btn-prev" href ="/"><a class="link_pre" href ="/">HomePage</a></button>
+
+</div>
+
+</body>
+</html>
